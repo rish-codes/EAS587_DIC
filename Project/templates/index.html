@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+</head>
+<body>
+    <h2>Enter Customer Information</h2>
+    <form action="/predict" method="post">
+
+        <label for="credit_score">Credit Score:</label>
+        <input type="number" step="0.01" id="credit_score" name="credit_score" required><br><br>
+
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
+            <option value="Spain">Spain</option>
+        </select><br><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label for="tenure">Tenure:</label>
+        <input type="number" step="0.01" id="tenure" name="tenure" required><br><br>
+
+        <label for="balance">Bank Balance:</label>
+        <input type="number" step="0.01" id="balance" name="balance" required><br><br>
+
+        <label for="products_number">Number of Products from Bank:</label>
+        <input type="number" id="products_number" name="products_number" required><br><br>
+
+        <label for="credit_card">Does customer have a credit card?:</label>
+        <select id="credit_card" name="credit_card">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="active_member">Is customer an active member of the Bank?:</label>
+        <select id="active_member" name="active_member">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="est_salary">Estimated Salary:</label>
+        <input type="number" step="0.01" id="est_salary" name="est_salary" required><br><br>
+
+         
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
