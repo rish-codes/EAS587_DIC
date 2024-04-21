@@ -4,9 +4,9 @@ import joblib
 import pandas as pd
 import plotly.express as px
 
-import os
+# import os
 # os.chdir('Project/')
-print(os.getcwd())
+# print(os.getcwd())
 
 df = pd.read_csv("webapp_df.csv")
 df['active_member'] = df['active_member'].replace({1: 'Active Member', 0: 'Inactive Member'})
