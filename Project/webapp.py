@@ -4,14 +4,14 @@ import joblib
 import pandas as pd
 import plotly.express as px
 
-df = pd.read_csv("Project/webapp_df.csv")
+df = pd.read_csv("webapp_df.csv")
 df['active_member'] = df['active_member'].replace({1: 'Active Member', 0: 'Inactive Member'})
 
 # Load your trained model
-model = joblib.load('Project/svc_model.pkl')
+model = joblib.load('svc_model.pkl')
 
 # Load the mean and standard deviation used for scaling during training
-scaler = joblib.load('Project/scaler.pkl')
+scaler = joblib.load('scaler.pkl')
 
 def process_input(features):
 
