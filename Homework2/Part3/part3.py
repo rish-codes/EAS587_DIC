@@ -1,6 +1,5 @@
 from pyspark import SparkContext, SparkConf
 
-# Initialize SparkContext
 conf = SparkConf().setAppName("PageRank").setMaster("local")
 sc = SparkContext(conf=conf)
 
@@ -23,13 +22,11 @@ page_links = lines.map(parse_line)
 num_pages = page_links.count()
 page_ranks = page_links.map(lambda x: (x[0], 1.0 / num_pages))
 
-# Number of iterations
+# We are running 10 iterations PageRank here
 num_iterations = 10
 
 # PageRank algorithm
 for i in range(num_iterations):
-    # Join page_links RDD with page_ranks RDD
-    # Each record will now be (page_id, (links, page_rank))
     joined = page_links.join(page_ranks)
     
     # Calculate contributions to each page's PageRank
@@ -48,5 +45,4 @@ with open("Part3/output_3.txt", "w") as f:
 
 input("Press Enter to terminate:")
 
-# Stop SparkContext
 sc.stop()

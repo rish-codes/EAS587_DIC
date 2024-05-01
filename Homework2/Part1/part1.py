@@ -5,8 +5,8 @@ conf = SparkConf().setAppName("WordCount").setMaster("local")
 sc = SparkContext(conf=conf)
 
 # Read input text files
-file1_lines = sc.textFile("the_prophet.txt")
-file2_lines = sc.textFile("war_and_peace.txt")
+file1_lines = sc.textFile("Part1/the_prophet.txt")
+file2_lines = sc.textFile("Part1/war_and_peace.txt")
 
 # Process first book
 words_file1 = file1_lines.flatMap(lambda line: line.lower().split())
@@ -28,7 +28,7 @@ sorted_word_counts = combined_word_counts.sortBy(lambda x: x[1], ascending=False
 sorted_word_counts_list = sorted_word_counts.collect()
 
 # Write sorted word counts to a single output text file
-with open("output_1.txt", "w") as f:
+with open("Part1/output_1.txt", "w") as f:
     for word, count in sorted_word_counts_list:
         f.write(f"{word}: {count}\n")
 

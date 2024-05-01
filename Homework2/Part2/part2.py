@@ -45,7 +45,7 @@ graph_rdd1 = parsed_file1.map(lambda x: (x[0], [(x[1], x[2])])).reduceByKey(lamb
 graph_rdd2 = parsed_file2.map(lambda x: (x[0], [(x[1], x[2])])).reduceByKey(lambda x, y: x + y).collectAsMap()
 
 # Run Dijkstra's algorithm on each graph
-source_vertex = 0  # Specify your source vertex here
+source_vertex = 0 
 result1 = dijkstra(graph_rdd1, source_vertex)
 result2 = dijkstra(graph_rdd2, source_vertex)
 
@@ -69,5 +69,4 @@ with open("Part2/output_2.txt", "w") as f:
 
 input("Press Enter to terminate:")
 
-# Stop SparkContext
 sc.stop()
